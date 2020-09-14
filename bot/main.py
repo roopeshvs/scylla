@@ -1,51 +1,55 @@
-# ANCHOR MAIN DEPENDENCIES
+# MAIN LIBRARIES
 
 import discord
 from discord.ext import commands
 import os
 
-# ANCHOR OPTIONAL DEPENDENCIES
+# 
 
-import datetime
+from datetime import datetime
 
-# ANCHOR TOKEN, DESCRIPTION, ACTIVITY AND PREFIX
 
 token = os.getenv("SCYLLA_TOKEN")
-description = """
-A community driven Discord Bot made for programmers, developers and hackers.
-"""
+
+description = "A community driven Discord bot made for programmers, developers and hackers."
 prefix = ">"
 custom_status = prefix + "help"
 
-# ANCHOR MAIN FUNCTION
+
+def initialize_cogs():
+	cogs = ["general", "admin", "pentesting", "programming"]
+	for extension in cogs:
+		bot.load_extension(f'cogs.{extension}.{extension}')
 
 
 bot = commands.Bot(command_prefix=prefix, description=description)
 
 @bot.event
 async def on_ready():
-	print("--------------------")
-	print("Bot is online!")
-	print("Build successful 🚀")
-	print(f"Logged in as {bot.user.name}")
-	print("--------------------")
-	print("Setting status and activity")
-	await bot.change_presence(status=discord.Status.online, type=1, activity=discord.Game(custom_status))
-	print("Status set to")
-
-@bot.command()
-async def load(ctx, extension):
-	bot.load_extension(f'cogs/{extension}.extension')
-
-@bot.command()
-async def unload(ctx, extension):
-	bot.unload_extension(f'cogs.{extension}.{extension}')
+	print(f"[{datetime.now().strftime('%d/%m %H:%M:%S')}] Bot is online!")
+	print(f"[{datetime.now().strftime('%d/%m %H:%M:%S')}] Build successful 🚀")
+	print(f"[{datetime.now().strftime('%d/%m %H:%M:%S')}] Logged in as {bot.user.name}")
+	print(f"[{datetime.now().strftime('%d/%m %H:%M:%S')}] Setting status and activity")
+	await bot.change_presence(status=discord.Status.online, activity=discord.Game(custom_status))
+	print(f"[{datetime.now().strftime('%d/%m %H:%M:%S')}] Status set to {custom_status}")
+	print(f"[{datetime.now().strftime('%d/%m %H:%M:%S')}] Initializing cogs")
+	initialize_cogs()
+	print(f"[{datetime.now().strftime('%d/%m %H:%M:%S')}] Cogs Initialized")
+	print(f"[{datetime.now().strftime('%d/%m %H:%M:%S')}] Startup Complete")
 
 
+@bot.event
+async def on_command_error(ctx, error):
+	if isinstance(error, commands.CommandNotFound):
+		await ctx.send("Invalid Command 😐")
+
+
+# TODO ERROR HANDLING NoEntryPointError 
+# TODO UPTIME HANDLING
 
 
 try:
 	 bot.run(token)
-except KeyboradInterrupt:
+except KeyboardInterrupt:
 	 bot.logout()
 
