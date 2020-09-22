@@ -8,7 +8,7 @@ class Admin(commands.Cog):
 
 	@commands.command()
 	@commands.has_permissions(administrator=True)
-	async def clear(self, ctx, amount=3):
+	async def clear(self, ctx, amount : int):
 		await ctx.channel.purge(limit=amount)
 
 	@clear.error

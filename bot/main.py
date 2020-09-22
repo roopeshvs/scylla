@@ -34,12 +34,6 @@ async def on_ready():
 	print(f"[{datetime.now().strftime('%d/%m %H:%M:%S')}] Cogs Initialized")
 	print(f"[{datetime.now().strftime('%d/%m %H:%M:%S')}] Startup Complete")
 
-
-@bot.event
-async def on_command_error(ctx, error):
-	if isinstance(error, commands.CommandNotFound):
-		await ctx.send("Invalid Command 😐")
-
 try:
 	 bot.run(token)
 except KeyboardInterrupt:
