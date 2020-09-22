@@ -14,12 +14,14 @@ class General(commands.Cog):
 	 
 
 	@commands.command()
-	
 	async def ping(self, ctx):
 		current_ping = round(self.bot.latency, 2)
 		current_uptime = round(time.monotonic() - self.initial_time, 2)
-		await ctx.send(f"🏓 Pong with {current_ping}")
-		await ctx.send(f"👍 Up Time {current_uptime}s")
+		embed = discord.Embed(title="Scylla", description="Ping Details", color=0xc41c1c)
+		embed.set_thumbnail(url="https://github.com/p014ri5/scylla/raw/master/assets/profile.png")
+		embed.add_field(name="🏓 Ping ", value=str(current_ping)+"s", inline=False)
+		embed.add_field(name="👍 Uptime", value=str(current_uptime)+"s", inline=False)
+		await ctx.send(embed=embed)
 
 	@commands.command(aliases=['8ball'])
 	async def ball(self, ctx, *, question):
