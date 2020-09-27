@@ -17,22 +17,24 @@ custom_status = prefix + "help"
 bot = commands.Bot(command_prefix=prefix, description=description)
 
 def initialize_cogs():
-	cogs = ["general", "admin", "pentesting", "programming"]
+	cogs = ["general", "admin", "pentesting", "programming", "development"]
 	for extension in cogs:
 		bot.load_extension(f'cogs.{extension}.{extension}')
 
+def get_time():
+	return datetime.now().strftime('%d/%m %H:%M:%S')
 
 @bot.event
 async def on_ready():
-	print(f"[{datetime.now().strftime('%d/%m %H:%M:%S')}] Bot is online!")
-	print(f"[{datetime.now().strftime('%d/%m %H:%M:%S')}] Logged in as {bot.user.name}")
-	print(f"[{datetime.now().strftime('%d/%m %H:%M:%S')}] Setting status and activity")
+	print(f"[{get_time()}] Bot is online!")
+	print(f"[{get_time()}] Logged in as {bot.user.name}")
+	print(f"[{get_time()}] Setting status and activity")
 	await bot.change_presence(status=discord.Status.online, activity=discord.Game(custom_status))
-	print(f"[{datetime.now().strftime('%d/%m %H:%M:%S')}] Status set to {custom_status}")
-	print(f"[{datetime.now().strftime('%d/%m %H:%M:%S')}] Initializing cogs")
+	print(f"[{get_time()}] Status set to {custom_status}")
+	print(f"[{get_time()}] Initializing cogs")
 	initialize_cogs()
-	print(f"[{datetime.now().strftime('%d/%m %H:%M:%S')}] Cogs Initialized")
-	print(f"[{datetime.now().strftime('%d/%m %H:%M:%S')}] Startup Complete")
+	print(f"[{get_time()}] Cogs Initialized")
+	print(f"[{get_time()}] Startup Complete")
 
 try:
 	 bot.run(token)
