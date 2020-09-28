@@ -20,7 +20,11 @@ The bot has 4 different **cogs** which are *admin*, *programming*, *general* and
 
 - Main Python File will only be used to add load, unload cogs and prefix changing commands.
 
+If you would like to suggest a new command or any kind of suggestion please open a new issue :)
+
 The commands that are implemented in different Cogs and People who implemented them are :
+
+## Contributions
 
 |   Cog/File  |   Command  | Description                                                                                                                                     |               Developer               |    Date    |
 |:-----------:|:----------:|-------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------:|:----------:|
@@ -28,8 +32,6 @@ The commands that are implemented in different Cogs and People who implemented t
 |   General   |    ping    | Returns Latency of Bot in seconds, with uptime.                                                                                                 | [p014ri5](https://github.com/p014ri5) | 27-09-2020 |
 |   General   | 8ball/ball | Return one of the 20 responses, while takes question as argument.                                                                               | [p014ri5](https://github.com/p014ri5) | 27-09-2020 |
 | Programming |   convert  | Sub commands : dec, hex, oct Return conversion among decimal, hexadecimal and octal. Also returns UTF-8 Character for the corresponding Number. | [p014ri5](https://github.com/p014ri5) | 27-09-2020 |
-
-Commands to be implemented are in issues. You can also open a new issue for a new command.
 
 If you would like to contribute to it, Please read [CONTRIBUTING.md](https://github.com/p014ri5/scylla/blob/master/CONTRIBUTING.md)
 
