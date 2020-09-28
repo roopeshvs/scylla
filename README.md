@@ -4,6 +4,9 @@
 
 Most of the times we developers/programmers/hackers hang out in Discord server discussing about our projects. So I wanted to create a bot which would make our lives easier. Well the only problem is exams are few days away and I gotta study. But recently I came across Hacktoberfest so I thought it would be cool opportunity to make this happen with the help of all of you crazy open source guys. It will also be a great first open source project for newbies. So I decided to make it open source. Enough Talk, We got work to do.
 
+I'll be sharing Bot invite link soon. Sadly my Heroku Dynos ran out :( So will update the link to bot invite and server soon.
+Also don't mind If this project is not really well documented, I'll try to improve it as much as I can ASAP. If you'd like to improve the documentation please open a PR too :)
+
 If you are new to Discord bot development I'll suggest watching [Discord Rewrite Tutorial by Lucas](https://youtu.be/nW8c7vT6Hl4)
 
 The bot has 4 different **cogs** which are *admin*, *programming*, *general* and *pentesting* and a *main* Python file.
